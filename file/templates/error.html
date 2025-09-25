@@ -1,0 +1,71 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Erro no Upload</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .error-container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0px 8px 20px rgba(0,0,0,0.2);
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+      animation: fadeIn 1s ease-in-out;
+    }
+    .error-icon {
+      font-size: 60px;
+      color: #dc3545;
+      margin-bottom: 20px;
+    }
+    h2 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+    p {
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #dc3545;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background: #a71d2a;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="error-icon">❌</div>
+    <h2>Tipo de arquivo inválido</h2>
+    <p>O arquivo <strong>{{ filename }}</strong> não é aceito.<br>
+       Permitidos: <strong>.json, .csv, .xml</strong>.</p>
+    <a href="{% url 'upload' %}" class="btn">Tentar novamente</a>
+  </div>
+</body>
+</html>
